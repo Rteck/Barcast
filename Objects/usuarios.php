@@ -9,7 +9,7 @@
     private $nombre;
     private $email;
     // considerar cambiar nombre a pass
-    private $contraseña;
+    private $password;
     private $idTipoUsuario;
     private $activo;
 
@@ -37,9 +37,9 @@
     }
 
     // No acepta la ñ
-    public function getcontrasena()
+    public function getpassword()
     {
-      return $this->contraseña;
+      return $this->password;
     }
 
     public function getidTipoUsuario()
@@ -70,9 +70,9 @@
       $this->email = $email;
     }
 
-    public function setcontrasena($contraseña)
+    public function setpassword($password)
     {
-      $this->contraseña = $contraseña;
+      $this->password = $password;
     }
 
     public function setidTipoUsuario($idTipoUsuario)
