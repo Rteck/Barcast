@@ -55,7 +55,7 @@
                               <div class="row">
                                 <div style="text-align:center">
                                   <a class="waves-effect waves-light btn" onclick="javascript:registrar()">Registrar</a>
-                                  
+
                                 </div>
                               </div>
 
@@ -64,11 +64,6 @@
                 </div>
             </div>
           </div>
-
-
-
-
-
         </div>
     </main>
 

@@ -38,39 +38,56 @@ function getAllTipoUsuario() {
   });
 }
 
-function registrar() {
-  $.ajax({
-          url: 'FormularioRegistroCB.php', //se manda llamar el archivo php que se usara para comunicar con el servidor
-          type: 'POST',// tipo de dato que recibira el archivo php
-          data: {
-                  'func':2,
-                  'f_nombre':$('#f_nombre').val(),
-                  'f_apell':$('#f_apell').val(),
-                  'f_email':$('#f_email').val(),
-                  'f_password':$('#f_password').val()
-                }, // variables que se mandaran al php
-          dataType: 'json', // tipo de dato que regresara el archivo php al cliente
-          success: function(data) // funcion que es llamada cuando se realizo con exito el archivo php
-          {
-              // aqui va todo el codigo para manipular los datos en el cliente
+function registrar()
+{
+  if (isEmail($('#f_email').val()))
+  {
+    $.ajax({
+            url: 'FormularioRegistroCB.php', //se manda llamar el archivo php que se usara para comunicar con el servidor
+            type: 'POST',// tipo de dato que recibira el archivo php
+            data: {
+                    'func':2,
+                    'f_nombre':$('#f_nombre').val(),
+                    'f_apell':$('#f_apell').val(),
+                    'f_email':$('#f_email').val(),
+                    'f_password':$('#f_password').val()
+                  }, // variables que se mandaran al php
+            dataType: 'json', // tipo de dato que regresara el archivo php al cliente
+            success: function(data) // funcion que es llamada cuando se realizo con exito el archivo php
+            {
 
-              if (data.status == "OK") // bandera que se manda desde el php para indicar que todo salio bien
-              {
-                  $('#sel_tipo').prepend(data.select);
-                  $('select').material_select();
-                  //$('#Ajax').hide();
-              }
-              else
-              {
-                  alert(data.status);
-                  //$('#Ajax').hide();
-              }
-          },
-          error:function()
-          {
-              alert("Error en ajax/FormularioRegistroCB.php"); // el error estaria en el archivo php
-              $('#Ajax').hide();
+                switch (data.status)
+                {
+                  case "OK":
+                    // aqui va el redireccionamiento o el error
+                    break;
+                    case "EMAIL":
+                        Materialize.toast('Este email ya esta registrado en barcast, intente con otro correo por favor', 3000, 'rounded');
+                        $('#f_email').val('');
+                        $('#f_email').focus();
+                      break;
+                  default:
+                  break;
 
-          }
-  });
+                }
+            },
+            error:function()
+            {
+                alert("Error en ajax/FormularioRegistroCB.php"); // el error estaria en el archivo php
+
+            }
+    });
+  }
+  else
+  {
+    Materialize.toast('Este email no es valido, asegurate que este escrito correctamente', 3000, 'rounded');
+    $('#f_email').val('');
+    $('#f_email').focus();
+  }
+}
+
+function isEmail(email)
+{
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
 }

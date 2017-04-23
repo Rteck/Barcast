@@ -50,11 +50,18 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/barcast/DAL/BD/BaseDatos.php');
       }
 
     }
-
+    /**
+     * [función para insertar usuarios nuevos en barcast]
+     * @param  [type] $name     [nombre del usuario]
+     * @param  [type] $lastname [apellido del usuario]
+     * @param  [type] $email    [correo del usuario]
+     * @param  [type] $pass     [contraseña del usuario]
+     * @return [type]           [respuesta de la inserción]
+     */
     public static function insertUsuarios($name,$lastname,$email,$pass)
     {
       $response='';
-      $nombre = $name.$lastname;
+      $nombre = $name.' '.$lastname;
       Barcast::open();
       $result =   mysqli_query(Barcast::$dbh,"INSERT INTO usuarios (nombre,email,password,idTipoUsuario)
                                               VALUES('$nombre','$email','$pass',4)"); // ira por defaul el tipo de usuario basico
