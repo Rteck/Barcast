@@ -52,6 +52,53 @@
         return $response;
     }
 
+    public static function login($email,$pass)
+    {
+      $response='';
+      $dominio = explode("@",$email);
+      $arroba = FALSE;
+      if (count($dominio) > 1)
+      {
+        $arroba = TRUE;
+      }
+      if ($arroba)
+      {
+        if (self::verifyEmail($dominio[1]))
+        {
+          $usuario = UsuariosDAL::selectUsuarios($email);
+
+          if (is_null($usuario))
+          {
+            $response = 'EMAIL';
+          }
+          else
+          {
+           if ($pass == $usuario->getpassword())
+           {
+             $response = 'OK';
+           }
+           else
+           {
+            $response = 'EMAIL';
+           }
+          }
+        }
+        else
+        {
+          $response = 'EMAIL';
+        }
+
+      }
+      else
+      {
+          $response = 'EMAIL';
+      }
+
+
+      return $response;
+
+    }
+
     public static function verifyEmail($dominio)
     {
       $dominiosValidos = BarcastHelper::getDominios();
