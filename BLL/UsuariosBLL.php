@@ -76,6 +76,8 @@
            if ($pass == $usuario->getpassword())
            {
              $response = 'OK';
+             session_start();
+             $_SESSION['idUsuario']  = $usuario->getidUsuarios();
            }
            else
            {

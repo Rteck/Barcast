@@ -22,7 +22,7 @@ function iniciar_sesion()
                 switch (data.status)
                 {
                   case "OK":
-                    Materialize.toast('Sesion Iniciada', 3000, 'rounded');
+                    window.location.href = "../Inicio/inicio.php";
                     break;
                     case "EMAIL":
                         Materialize.toast('El Email o el Password es incorrecto, intente de nuevo por favor', 3000, 'rounded');

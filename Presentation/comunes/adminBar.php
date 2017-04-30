@@ -1,5 +1,5 @@
 
-<div id="adminBar">
+<div id="adminBar" class="navbar-fixed">
   <nav class="grey darken-3">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">Logo</a>
