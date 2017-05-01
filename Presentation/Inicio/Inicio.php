@@ -29,24 +29,26 @@ session_start();
           <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <div class="row">
+                    <div class="row" style="border-bottom: 1px solid #ccc">
                       <div class="col s6">
                           <h4>Mis Negocios</h4>
                       </div>
                         <div class="col s3 offset-s3" style="text-align: right;">
-                            <a class="waves-effect waves-light btn" href="javascript:openAddTipoUsuario()"><i class="material-icons">add</i></a>
+                          <a id="scale-demo" href="#!" class="btn-floating btn-large scale-transition">
+                            <i class="material-icons">add</i>
+                          </a>
                         </div>
                     </div>
                     <div class="row">
                           <!--Pantilla para mostrar los negocios a los que se esta relacionado -->
                           <div class="col s12 m4">
-                            <div class="card">
+                            <div class="card hoverable small">
                               <div class="card-image">
                                 <img src="https://scontent-lax3-2.xx.fbcdn.net/v/t1.0-9/10264539_1753907001499951_5708647369719386316_n.jpg?oh=1362ae13488430cec0cbe051b0a58df6&oe=59869117">
                               </div>
                               <div class="card-content">
-                                <div>
-                                  <h5>La Chula</h5>
+                                <div style="text-align: center;">
+                                  <h6>Maderos de San Juan</h6>
                                 </div>
                               </div>
                               <div class="card-action">
