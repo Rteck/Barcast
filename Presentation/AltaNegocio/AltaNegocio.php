@@ -51,6 +51,15 @@ session_start();
                                   <label for="textarea1">Descripcion del negocio:</label>
                                 </div>
                               </div>
+                                <!--Sección de ubicación -->
+
+
+                                <div class="row" style="border-bottom: 1px solid #ccc">
+                                  <div class="col s6">
+                                      <h4>Ubicación</h4>
+                                  </div>
+                                </div>
+
 
                               <div class="row">
                                 <div class="input-field col s12">
@@ -61,27 +70,36 @@ session_start();
 
                               <div class="row">
                                 <div class="input-field col s12">
-                                  <select multiple>
-                                    <option value="" disabled selected>(---)</option>
-                                    <option value="1">Lunes</option>
-                                    <option value="2">Martes</option>
-                                    <option value="3">Miércoles</option>
-                                    <option value="4">Jueves</option>
-                                    <option value="5">Viernes</option>
-                                    <option value="6">Sábado</option>
-                                    <option value="7">Domingo</option>
-                                  </select>
-                                  <label>Dias abierto</label>
+                                  <textarea id="N_horario" class="materialize-textarea"></textarea>
+                                  <label for="N_horario">Horarios:</label>
                                 </div>
                               </div>
-
                               <div class="row">
 
                                 <div class="input-field col s12">
-                                  <input type="time" class="datepicker">
+                                  <input  id="U_calle" type="text" class="validate">
+                                  <label for="U_calle">Calle:</label>
+                                </div>
+                              </div>
+                              <div class="row">
+
+                                <div class="input-field col s12">
+                                  <input  id="U_colonia" type="text" class="validate">
+                                  <label for="U_colonia">Colonia:</label>
                                 </div>
 
+                                <div class="input-field col s12">
+                                  <input  id="U_Numero" type="text" class="validate">
+                                  <label for="U_Numero">Número:</label>
+                                </div>
+
+                                <div class="input-field col s12">
+                                  <input  id="U_CP" type="text" class="validate">
+                                  <label for="U_CP">C.P:</label>
+                                </div>
                               </div>
+
+
 
                             </form>
                           <!-- -->
